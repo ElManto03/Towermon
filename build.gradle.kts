@@ -13,6 +13,7 @@ plugins {
      */
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.danilopianini.gradle-java-qa") version "1.31.1"
+
 }
 
 repositories { // Where to search for dependencies
@@ -25,6 +26,7 @@ dependencies {
 
     // Maven dependencies are composed by a group name, a name and a version, separated by colons
     implementation("org.jooq:jool:0.9.15")
+    implementation("org.apache.commons:commons-lang3:3.14.0")
 
     // JUnit API and testing engine
     val jUnitVersion = "5.10.1"
