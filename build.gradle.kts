@@ -28,6 +28,15 @@ dependencies {
     implementation("org.jooq:jool:0.9.15")
     implementation("org.apache.commons:commons-lang3:3.14.0")
 
+    /*
+     * Simple Logging Facade for Java (SLF4J) with Apache Log4j
+     * See: http://www.slf4j.org/
+     */
+    val slf4jVersion = "2.0.10"
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    // Logback backend for SLF4J
+    runtimeOnly("ch.qos.logback:logback-classic:1.4.14")
+
     // JUnit API and testing engine
     val jUnitVersion = "5.10.1"
     // when dependencies share the same version, grouping in a val helps to keep them in sync
