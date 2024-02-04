@@ -8,8 +8,12 @@ public interface Trainer {
 
     Set<Monster> getMonsters();
 
-    int getMonstersAlive();
+    boolean isDefeated();
 
     int getMana();
+
+    void useMana(int manaCost);
+
+    void recoverMana();
 
 }
