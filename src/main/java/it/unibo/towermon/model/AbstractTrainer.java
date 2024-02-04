@@ -3,9 +3,14 @@ package it.unibo.towermon.model;
 import java.util.Collections;
 import java.util.Set;
 
+/**
+ * Implementation of {@link Trainer},
+ * with elements in common both for {@link Player} and {@link Trainer}.
+ */
 public abstract class AbstractTrainer implements Trainer {
 
     private static final int MAX_MANA = 4;
+    private static final int MANA_RECOVER = 2;
 
     private String name;
     private Set<Monster> monsters;
@@ -13,42 +18,40 @@ public abstract class AbstractTrainer implements Trainer {
 
 
     @Override
-    public int getMana() {
+    public final int getMana() {
         return mana;
     }
 
     @Override
-    public boolean isDefeated() {
+    public final boolean isDefeated() {
         return this.monsters.stream().allMatch(m -> m.isFainted());
     }
 
     @Override
-    public void recoverMana() {
-        this.mana += 2;
+    public final void recoverMana() {
+        this.mana += MANA_RECOVER;
         if (this.mana > MAX_MANA) {
             this.mana = MAX_MANA;
         }
     }
 
     @Override
-    public void useMana(final int manaCost) {
+    public final void useMana(final int manaCost) {
         if (this.mana >= manaCost) {
             this.mana -= manaCost;
         } else {
             throw new IllegalStateException();
         }
     }
-  
+
     @Override
-    public Set<Monster> getMonsters() {
+    public final Set<Monster> getMonsters() {
         return Collections.unmodifiableSet(monsters);
     }
 
     @Override
-    public String getName() {
+    public final String getName() {
         return name;
-    }
-
-    
+    } 
 
 }
