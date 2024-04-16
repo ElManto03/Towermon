@@ -18,4 +18,14 @@ public interface Monster {
     int getAttack();
 
     int getDefense();
+
+    void increaseAttack(int n);
+
+    void increaseDefense(int n);
+
+    void increaseMaxHP(int n);
+
+    void receiveDemage(int n);
+
+    void healHP(int n);
 }
